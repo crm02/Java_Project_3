@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
 //The problems and their corresponding answer must be stored as an array or arraylist as ProblemAnsAnswer objects
 
 //Create B as a ProblemAndAnswer object, it's assigned default String Problem and String Answer, store B in Arraylist, have B's problem and answer
@@ -21,7 +21,7 @@ class ProblemAndAnswer{
         this.problem = problem;
     }   
         
-   // public void setAnswer(String answer){}
+    public void setAnswer(String answer){}
 
     //public String getProblem(){}
 
@@ -72,6 +72,7 @@ public class JavaPorj {
 
         major.setProblem(problem);
         System.out.println(major.problem);
+        JOptionPane.showMessageDialog(null, "Question " + major.problem + "!");
     }
 
 
