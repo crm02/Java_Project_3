@@ -35,7 +35,7 @@ class ProblemAndAnswer{
     }
 
     public boolean checkAnswer(String response){
-        if (this.answer == response.trim()){
+        if (this.answer.equals(response.trim())){
             return true;
         }
         else return false;
@@ -53,6 +53,7 @@ class ProblemAndAnswer{
 
 public class JavaPorj {
     public static void main(String[] args) {
+        
         ArrayList<ProblemAndAnswer> pandA = new ArrayList<>(); // Arraylists that hold objects of the ProbelmAndAnswer class
         ProblemAndAnswer major = new ProblemAndAnswer();
         
@@ -73,8 +74,8 @@ public class JavaPorj {
             iterate[i].setProblem(problem);
             iterate[i].setAnswer(aAnswer);
             
-            System.out.println(iterate[i].problem);
-            System.out.println(iterate[i].answer);
+            System.out.println(iterate[i].getProblem());
+            System.out.println(iterate[i].getAnswer());
 
         }
         System.out.println(iterate[0].getAnswer());
@@ -121,13 +122,31 @@ public class JavaPorj {
             System.out.println(iterate[i].answer);
 
         }
+        String title = "Binary Math Tutor 1.0";
+        // check if other methods are working
+
+        // Each problem must be chosen randomly, each problem must be chosen once,
+
+        // use math.random again to pick a number between 0 and 15, (the index's of the arraylist) then remove from the arraylist
+        JOptionPane.showMessageDialog(null, "Welcome to the Binary Math Tutor 1.0!\n          Let's stat practicing! ",title,JOptionPane.INFORMATION_MESSAGE );
+        boolean choice = true;
+        while (choice = true){
+            int random_Problem = (int)(Math.random()*15);
+            //System.out.println(pandA.get(random_Problem).getAnswer()); // Get answer to check if works
+            String userAnswerBinary = JOptionPane.showInputDialog(pandA.get(random_Problem).getProblem(), "Your Answer?"); // Picks random problem to display
+            
+            System.out.println(pandA.get(random_Problem).checkAnswer(userAnswerBinary));
+            if (pandA.get(random_Problem).checkAnswer(userAnswerBinary) == true){
+                System.out.println("Yes");
+            }else System.out.println("Sorry, but no :(");
+            pandA.remove(random_Problem); // Removes problem 
+            
+
+        }
 
 
-
-
-
-
-
+        System.out.println(iterate[1].getAnswer());         //Works
+        System.out.println(pandA.get(1).getAnswer());   // Works, USe array list because we can later remove elements bc no repeat questions
 
         int a =  (int)(Math.random()*64); // generate random number between 0 and 63
         int b = (int)(Math.random()*64);
