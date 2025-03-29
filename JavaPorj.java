@@ -21,15 +21,29 @@ class ProblemAndAnswer{
         this.problem = problem;
     }   
         
-    public void setAnswer(String answer){}
+    public void setAnswer(String answer){
+        this.answer = answer;
+    }
+        
 
-    //public String getProblem(){}
+    public String getProblem(){
+        return this.problem;
+    }
 
-   // public String getAnswer(){}
+    public String getAnswer(){
+        return this.answer;
+    }
 
-   // public boolean checkAnswer(String response){}
+    public boolean checkAnswer(String response){
+        if (this.answer == response.trim()){
+            return true;
+        }
+        else return false;
+    }
 
-    //public void displayProblem(){}
+    public void displayProblem(){
+        System.out.println(this.problem);
+    }
 
 
 }
@@ -42,37 +56,116 @@ public class JavaPorj {
         ArrayList<ProblemAndAnswer> pandA = new ArrayList<>(); // Arraylists that hold objects of the ProbelmAndAnswer class
         ProblemAndAnswer major = new ProblemAndAnswer();
         
+        ProblemAndAnswer[] iterate = new ProblemAndAnswer[15]; // makes an array that can store 15 objects 
+
+        //Addition
+        for (int i = 0; i<iterate.length-10; i++){  
+            iterate[i] = new ProblemAndAnswer();
+            int a = (int)(Math.random()*64);
+            int b = (int)(Math.random()*64);
+            String aBinary = Integer.toBinaryString(a);
+            String bBinary = Integer.toBinaryString(b);
+            String problem = aBinary + " + " + bBinary;
+            int answer = a+b;
+            System.out.println(answer);
+            String aAnswer = Integer.toBinaryString(answer);
+            pandA.add(iterate[i]);
+            iterate[i].setProblem(problem);
+            iterate[i].setAnswer(aAnswer);
+            
+            System.out.println(iterate[i].problem);
+            System.out.println(iterate[i].answer);
+
+        }
+        System.out.println(iterate[0].getAnswer());
+
+
+        // For subtraction
+        for (int i = 5; i<iterate.length-5; i++){ 
+            iterate[i] = new ProblemAndAnswer();
+            int a = (int)(Math.random()*64);
+            int b = (int)(Math.random()*64);
+            while (b > a){ // Don't want negative numbers for this assigment
+             b = (int)(Math.random()*64);
+        }
+            String aBinary = Integer.toBinaryString(a);
+            String bBinary = Integer.toBinaryString(b);
+            String problem = aBinary + " - " + bBinary;
+            int answer = a-b;
+            System.out.println(answer);
+            String aAnswer = Integer.toBinaryString(answer);
+            pandA.add(iterate[i]);
+            iterate[i].setProblem(problem);
+            iterate[i].setAnswer(aAnswer);
+            
+            System.out.println(iterate[i].problem);
+            System.out.println(iterate[i].answer);
+
+        }
+        // For Division
+        for (int i = 10; i<iterate.length; i++){ 
+            iterate[i] = new ProblemAndAnswer();
+            int a = (int)(Math.random()*64);
+            int b = (int)(Math.random()*64);
+            String aBinary = Integer.toBinaryString(a);
+            String bBinary = Integer.toBinaryString(b);
+            String problem = aBinary + " * " + bBinary;
+            int answer = a*b;
+            System.out.println(answer);
+            String aAnswer = Integer.toBinaryString(answer);
+            pandA.add(iterate[i]);
+            iterate[i].setProblem(problem);
+            iterate[i].setAnswer(aAnswer);
+            
+            System.out.println(iterate[i].problem);
+            System.out.println(iterate[i].answer);
+
+        }
+
+
+
+
+
+
 
 
         int a =  (int)(Math.random()*64); // generate random number between 0 and 63
         int b = (int)(Math.random()*64);
         
-        
+       
 
         while (b > a){ // Don't want negative numbers for this assigment
              b = (int)(Math.random()*64);
         }
-        String aBinary = Integer.toBinaryString(a);
-        String bBinary = Integer.toBinaryString(b);
-
-        String problem = aBinary + " + " + bBinary;
+         //////////String answer = String.valueOf(a+b);
+         //int answer = a+b;  // has to be after while (b > a) 
 
 
 
+        //String aBinary = Integer.toBinaryString(a);
+        //String bBinary = Integer.toBinaryString(b);
 
-        
+        //String problem = aBinary + " + " + bBinary;
+        //System.out.println(answer);
+        //String aAnswer = Integer.toBinaryString(answer);
 
-        
-        
-        
-
-        pandA.add(major); // Adds major object ot arraylist
 
         
 
-        major.setProblem(problem);
-        System.out.println(major.problem);
-        JOptionPane.showMessageDialog(null, "Question " + major.problem + "!");
+        
+        
+        
+
+        //pandA.add(major); // Adds major object ot arraylist
+
+        
+
+        //major.setProblem(problem);
+        //major.setAnswer(aAnswer);
+
+        //System.out.println(major.problem);
+        //System.out.println(major.answer);
+        //JOptionPane.showMessageDialog(null, "Question " + major.problem + "!");
     }
 
 
